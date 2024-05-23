@@ -30,6 +30,11 @@
     <mat-datepicker-toggle matSuffix [for]="entryPicker"></mat-datepicker-toggle>
     <mat-datepicker #entryPicker></mat-datepicker>
   </mat-form-field>
+  <div class="form-group positions">
+    <div *ngFor="let employeePosition of employee.positionEmployees" class="employee-position">
+      <app-edit-position [employee]="employee" [employeePosition]="employeePosition"> </app-edit-position>
+    </div> 
+  </div>
   <button mat-raised-button class="add position" [disabled]="isFormValid()" (click)="openAddPositionDialog()">add position</button>
   <section>
     <div class="button-group">

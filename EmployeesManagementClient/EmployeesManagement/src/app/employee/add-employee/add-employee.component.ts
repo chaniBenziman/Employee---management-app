@@ -5,17 +5,30 @@ import { EmployeeService } from '../../service/employee.service';
 import Swal from 'sweetalert2';
 import { AddPositionComponent } from '../../position/add-position/add-position.component';
 import { MatDialog } from '@angular/material/dialog';
-import EventEmitter from 'events';
 import { Employee } from '../../models/employee.model';
 import { Position } from '../../models/position.model';
-import { catchError, identity, of } from 'rxjs';
-import { PositionEmployee } from '../../models/positionEmployee.model';
 import { PositionServiceService } from '../../service/position-service.service';
-
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { EditPositionComponent } from '../../position/edit-position/edit-position.component';
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css']
+    selector: 'app-add-employee',
+    standalone: true,
+    templateUrl: './add-employee.component.html',
+    styleUrls: ['./add-employee.component.css'],
+    providers: [EmployeeService, HttpClientModule],
+    imports: [CommonModule, MatTableModule, HttpClientModule, MatIconModule, MatFormFieldModule,
+        MatRadioModule, MatDatepickerModule, MatNativeDateModule, FormsModule, ReactiveFormsModule,
+        MatInputModule, MatSelectModule, EditPositionComponent]
 })
 export class AddEmployeeComponent implements OnInit {
 
@@ -25,7 +38,17 @@ export class AddEmployeeComponent implements OnInit {
     { value: 0, viewValue: 'Male' },
     { value: 1, viewValue: 'Female' }
   ];
-  employee: Employee;
+  public employee: Employee = {
+    employeeId: null,
+    firstName: "",
+    lastName: "",
+    identity: "",
+    birthDate: null,
+    positionEmployees: [],
+    gender: null,
+    entryDate: null,
+  
+  };
   constructor(
     private formBuilder: FormBuilder,
     private _employeeService: EmployeeService,
@@ -42,7 +65,6 @@ export class AddEmployeeComponent implements OnInit {
       identity: new FormControl('', Validators.required),
       birthDate: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
-      positions: new FormArray([]),
       entryDate: new FormControl('', Validators.required),
     });
   }
@@ -54,8 +76,17 @@ export class AddEmployeeComponent implements OnInit {
     if (this.employeeForm.invalid) {
       return;
     }
+  
+this.employee.birthDate=this.employeeForm.get('birthDate').value;
+this.employee.entryDate=this.employeeForm.get('entryDate').value; 
+this.employee.identity=this.employeeForm.get('identity').value;
+this.employee.firstName=this.employeeForm.get('firstName').value;
+this.employee.lastName=this.employeeForm.get('lastName').value;
+this.employee.gender=this.employeeForm.get('gender').value;
+
+    console.log("addemp",this.employee);
     // שמירת העובד באמצעות ה-Service
-    this._employeeService.addEmployee(this.employeeForm.getRawValue()).subscribe(() => {
+    this._employeeService.addEmployee(this.employee).subscribe(() => {
       Swal.fire({
         icon: 'success',
         title: 'Employee added successfully',
@@ -68,34 +99,22 @@ export class AddEmployeeComponent implements OnInit {
     this.router.navigate(["/"]);
   }
   openAddPositionDialog(): void {
+    this.employee.birthDate=this.employeeForm.get('birthDate').value;
+    this.employee.entryDate=this.employeeForm.get('entryDate').value; 
+    this.employee.identity=this.employeeForm.get('identity').value;
+    this.employee.firstName=this.employeeForm.get('firstName').value;
+    this.employee.lastName=this.employeeForm.get('lastName').value;
+    this.employee.gender=this.employeeForm.get('gender').value;
     const dialogRef = this.dialog.open(AddPositionComponent, {
       width: '500px',
-      data: { employee: this.employeeForm.value as Employee } 
+      data: { employee:this.employee as Employee } 
     });
   
-    dialogRef.afterClosed().pipe(
-      catchError(error => {
-        console.error('Error occurred while closing the dialog', error);
-        return of(null);
-      })
-    ).subscribe(result => {
-      if ((result)) {
-        this._positionEmployeeService.addPositionForEmployee(
-          this.employeeForm.get('identity').value,
-          result
-
-        ).subscribe(() => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Position added successfully',
-          });
-          this.router.navigate(["/employees"]);
-        });
-        this.employeeForm.setControl('positions', this.formBuilder.array(result.map(item => this.formBuilder.group(item))));
-      }
-    });
+     dialogRef.afterClosed().subscribe(result => {this.employee.positionEmployees=result;
+      console.log('The dialog was closed',this.employee);
+     });
+    
   }
-  
   isFormValid() {
     return !this.employeeForm.valid;
   }

@@ -7,10 +7,10 @@ export class Employee {
   birthDate: Date;
   gender: number;
   entryDate: Date;
-  statusActive: boolean;
-  positions!:PositionEmployee[];
+  // statusActive: boolean;
+  positionEmployees!:PositionEmployee[];
 
   constructor() {
-    this.statusActive = true;
+    // this.statusActive = true;
   }
 }

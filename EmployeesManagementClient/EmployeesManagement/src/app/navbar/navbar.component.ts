@@ -15,7 +15,13 @@ export class NavbarComponent {
 constructor(private router:Router){
 
 }
+toRegister() {
+  this.router.navigate(["/register"]);
 
+}
+toLogin() {
+  this.router.navigate(["/signin"]);
+}
 toAddEmployee() {
   this.router.navigate(["/addEmployee"]);
 }

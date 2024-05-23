@@ -19,7 +19,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { EditPositionComponent } from '../edit-position/edit-position.component';
 
 
 @Component({
@@ -81,9 +81,9 @@ console.log("employeePosition",this.employeePosition)
 
 
   isPositionDisabled(PositionName: String) {
-    if (this.employee && this.employee.positions) {
-      for (let i = 0; i < this.employee.positions.length; i++) {
-        if (this.employee.positions[i] && this.employee.positions[i].positionName === PositionName && this.employee.positions[i].positionName !== this.employeePosition.positionName) {
+    if (this.employee && this.employee.positionEmployees) {
+      for (let i = 0; i < this.employee.positionEmployees.length; i++) {
+        if (this.employee.positionEmployees[i] && this.employee.positionEmployees[i].positionName === PositionName && this.employee.positionEmployees[i].positionName !== this.employeePosition.positionName) {
           return true;
         }
       }
@@ -99,7 +99,6 @@ console.log("employeePosition",this.employeePosition)
     for (let i = 0; i < this.positions.length; i++) {
       if (this.positions[i].positionName === this.positionForm.value.positionName) {
         this.employeePosition.positionId = this.positions[i].positionId;
-
       }
     }
     this.employeePosition.positionName = this.positionForm.value.positionName;

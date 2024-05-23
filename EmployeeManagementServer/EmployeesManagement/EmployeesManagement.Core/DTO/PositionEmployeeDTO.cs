@@ -1,5 +1,5 @@
 ﻿
-namespace EmployeesManagement.DTO
+namespace EmployeesManagement.Core.DTO
 {
     public class PositionEmployeeDTO
     {

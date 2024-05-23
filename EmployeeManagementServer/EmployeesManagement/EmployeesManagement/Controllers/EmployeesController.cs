@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EmployeesManagement.Core.Models;
 using EmployeesManagement.Core.Services;
+using EmployeesManagement.Core.DTO;
 using EmployeesManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,14 +25,14 @@ namespace EmployeesManagementServer.API.Controllers
         }
         // GET: api/<EmployeesController>
         [HttpGet]
-        public async Task<IEnumerable<Employee>> Get()
+        public async Task<IEnumerable<EmployeeDTO>> Get()
         {
             return await _employeeService.GetEmployeesAsync();
         }
 
         // GET api/<EmployeesController>/5
         [HttpGet("{id}")]
-        public async Task<Employee> Get(int id)
+        public async Task<EmployeeDTO> Get(int id)
         {
             return await _employeeService.GetEmployeeByIdAsync(id);
         }

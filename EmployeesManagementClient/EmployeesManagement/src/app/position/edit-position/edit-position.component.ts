@@ -1,66 +1,56 @@
-// import { Component, OnInit } from '@angular/core';
-// import { ActivatedRoute, Router } from '@angular/router';
-// import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { PositionEmployee } from '../../models/positionEmployee.model';
-// import { PositionServiceService } from '../../service/position-service.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Employee } from '../../models/employee.model';
+import { Position } from '../../models/position.model';
+import { PositionEmployee } from '../../models/positionEmployee.model';
+import { MatDialog } from '@angular/material/dialog';
+import { PositionServiceService } from '../../service/position-service.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule, DatePipe } from '@angular/common';
+import { EditEmployeeComponent } from '../../employee/edit-employee/edit-employee.component';
+import { AddPositionComponent } from '../add-position/add-position.component';
+@Component({
+  selector: 'app-edit-position',
+  standalone: true,
+  imports: [  MatCardModule,
+    MatIconModule,
+    DatePipe,
+    CommonModule],
+  templateUrl: './edit-position.component.html',
+  styleUrl: './edit-position.component.css'
+})
+export class EditPositionComponent implements OnInit{
+  role: string = 'Software Engineer';
+  startDate: Date = new Date('2022-01-01'); 
+  @Input() employeePosition : PositionEmployee;
+  @Input() employee:Employee;
+  isManagementRole: boolean = false;
+  positions:Position[];
+  constructor(private _positionsService :PositionServiceService,private dialog: MatDialog,){
 
-// @Component({
-//   selector: 'app-edit-position',
-//   standalone: true,
-//   imports: [ ReactiveFormsModule],
-//   templateUrl: './edit-position.component.html',
-//   styleUrls: ['./edit-position.component.css']
-// })
-// export class EditPositionComponent implements OnInit {
-  
-//   positionForm: FormGroup;
-//   positionId: number;
+  }
 
-//   constructor(
-//     private formBuilder: FormBuilder,
-//     private positionService: PositionServiceService,
-//     private route: ActivatedRoute,
-//     private router: Router
-//   ) { }
+  ngOnInit(): void {
+     this._positionsService.getPositions().subscribe({
+      next: (res) => {
+        this.positions = res;
+        this.employeePosition.positionName = this.positions.find(p => p.positionId === this.employeePosition.positionId).positionName;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })   
+  }
 
-//   // ngOnInit(): void {
-//   //   this.route.paramMap.subscribe(params => {
-//   //     this.positionId = +params.get('id');
-//   //     this.loadPosition();
-//   //   });
+  editEmployeePosition(){
+    const dialogRef = this.dialog.open(AddPositionComponent, {
+      width: '500px',
+      data: {  employee: this.employee , employeePosition :this.employeePosition} 
+    });
 
-//     this.positionForm = this.formBuilder.group({
-//       positionName: ['', Validators.required],
-//       entryDate: ['', Validators.required],
-//       isManagement: [false]
-//     });
-//   }
+    dialogRef.afterClosed().subscribe(result => {
+      this.employee.positionEmployees=result;
+    });
 
-//   // loadPosition(): void {
-//   //   // this.positionService.getPositionPerEmployeeById(employeeId, this.positionId)
-//   //     .subscribe(position => {
-//   //       this.positionForm.patchValue(position);
-//   //     }, error => {
-//   //       console.error('Error loading position:', error);
-//   //     });
-//   // }
-  
-//   onSubmit(): void {
-//     if (this.positionForm.invalid) {
-//       return;
-//     }
-//     const employeeId = 1; // Replace with actual employee ID
-//     const positionData = this.positionForm.value as PositionEmployee;
-//     this.positionService.updatePosition(positionData, employeeId, this.positionId)
-//       .subscribe(() => {
-//         console.log('Position updated successfully.');
-//         this.router.navigate(['/']);
-//       }, error => {
-//         console.error('Error updating position:', error);
-//       });
-//   }
-
-//   onCancel(): void {
-//     this.router.navigate(['/']);
-//   }
-// }
+  }
+}

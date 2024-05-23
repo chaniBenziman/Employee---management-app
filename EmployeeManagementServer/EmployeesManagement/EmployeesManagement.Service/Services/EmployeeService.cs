@@ -1,6 +1,8 @@
-﻿using EmployeesManagement.Core.Models;
+﻿using AutoMapper;
+using EmployeesManagement.Core.Models;
 using EmployeesManagement.Core.Repositories;
 using EmployeesManagement.Core.Services;
+using EmployeesManagement.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,12 @@ namespace EmployeesManagement.Service.Services
 {
     public class EmployeeService:IEmployeeService
     {
+        private readonly IMapper _mapper;
         private readonly IEmployeeRepository _employeeRepository;
-        public EmployeeService(IEmployeeRepository employeeRepository)
+        public EmployeeService(IEmployeeRepository employeeRepository, IMapper mapper)
         {
             _employeeRepository = employeeRepository;
+            _mapper=mapper;
         }
         public async Task<Employee> AddEmployeeAsync(Employee employee)
         {
@@ -31,14 +35,17 @@ namespace EmployeesManagement.Service.Services
             return await _employeeRepository.DeleteEmployeeAsync(id);
         }
 
-        public async Task<Employee> GetEmployeeByIdAsync(int id)
+        public async Task<EmployeeDTO> GetEmployeeByIdAsync(int id)
         {
-            return await _employeeRepository.GetEmployeeByIdAsync(id);
+           var employee= await _employeeRepository.GetEmployeeByIdAsync(id);
+           return _mapper.Map<EmployeeDTO>(employee);
         }
 
-        public async Task<IEnumerable<Employee>> GetEmployeesAsync()
+        public async Task<IEnumerable<EmployeeDTO>> GetEmployeesAsync()
         {
-            return await _employeeRepository.GetEmployeesAsync();
+            var employee = await _employeeRepository.GetEmployeesAsync();
+            return _mapper.Map<IEnumerable<EmployeeDTO>>(employee);
+ 
         }
 
         public async Task<Employee> UpdateEmployeeAsync(int id, Employee employee)

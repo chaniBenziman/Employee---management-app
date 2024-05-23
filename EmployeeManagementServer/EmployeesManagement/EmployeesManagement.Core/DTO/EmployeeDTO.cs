@@ -1,9 +1,10 @@
 ﻿using EmployeesManagement.Core.Models;
 
-namespace EmployeesManagement.DTO
+namespace EmployeesManagement.Core.DTO
 {
     public class EmployeeDTO
     {
+        public int EmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Identity { get; set; }
@@ -11,7 +12,7 @@ namespace EmployeesManagement.DTO
         public Gender Gender { get; set; }
         public DateTime EntryDate { get; set; }
         public bool IsActive { get; set; }
-        List<PositionEmployee> PositionEmployees { get; set; }
+        public List<PositionEmployee> PositionEmployees { get; set; }
 
 
     }

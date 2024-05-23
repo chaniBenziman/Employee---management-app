@@ -37,16 +37,16 @@ namespace EmployeesManagement.Data.Repositories
         }
         public async Task<Employee> GetEmployeeByIdAsync(int id)
         {
-            return await _context.Employees.FirstOrDefaultAsync(emp => emp.EmployeeId == id);
+            return await _context.Employees.Include(p => p.PositionEmployees).FirstOrDefaultAsync(emp => emp.EmployeeId == id);
         }
         public async Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
-            return await _context.Employees.Include(e => e.PositionEmployees).ToListAsync();
+            return await _context.Employees.Where(e => e.StatusActive == true).Include(p => p.PositionEmployees).ToListAsync();
         }
         public async Task<Employee> UpdateEmployeeAsync(int id, Employee updatedEmployee)
         {
             // מציאת העובד לפי ה־id
-            var employee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeId == id);
+            var employee = await _context.Employees.Include(p => p.PositionEmployees).FirstOrDefaultAsync(e => e.EmployeeId == id);
             if (employee == null)
             {
                 return null;

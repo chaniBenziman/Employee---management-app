@@ -22,7 +22,7 @@ namespace EmployeesManagement.Core.Models
         public Gender Gender { get; set; }
         public DateTime EntryDate { get; set; }
         public bool StatusActive { get; set; }
-      public  List<PositionEmployee> PositionEmployees { get; set; }
+        public  List<PositionEmployee> PositionEmployees { get; set; }
         public Employee()
         {
             StatusActive = true;

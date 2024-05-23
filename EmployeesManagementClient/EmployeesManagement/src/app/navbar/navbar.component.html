@@ -3,7 +3,14 @@
 <mat-toolbar class="mat-toolbar">
     
     <span class="centered-content">
-      
+        <a mat-button (click)="toLogin()">
+            <mat-icon>login</mat-icon>
+            Login
+        </a>
+        <a mat-button  (click)="toRegister()">
+            <mat-icon>person_add</mat-icon>
+           register
+        </a>
         <a mat-button (click)="toAddEmployee()">
             <mat-icon>add</mat-icon>
            add-employee

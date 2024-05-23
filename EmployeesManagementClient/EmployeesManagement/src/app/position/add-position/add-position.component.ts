@@ -8,40 +8,51 @@ import { PositionServiceService } from '../../service/position-service.service';
 
 @Component({
   // providers:[HttpHandler],
-    selector: 'app-add-position',
-    standalone: true,
-    templateUrl: './add-position.component.html',
-    styleUrl: './add-position.component.css',
-    imports: [PositionFormComponent, HttpClientModule ]
+  selector: 'app-add-position',
+  standalone: true,
+  templateUrl: './add-position.component.html',
+  styleUrl: './add-position.component.css',
+  imports: [PositionFormComponent, HttpClientModule]
 })
-export class AddPositionComponent implements OnInit{
-  public employee:Employee; 
-  public employeePosition: PositionEmployee = {
-  positionId:0,
-  positionName:null,
-  isManagement:false,
-  entryDate:null
+export class AddPositionComponent implements OnInit {
+  public employee: Employee = {
+    employeeId: null,
+    firstName: "",
+    lastName: "",
+    identity: "",
+    birthDate: null,
+    positionEmployees: [],
+    gender: null,
+    entryDate: null,
   };
-  
+  public employeePosition: PositionEmployee = {
+    positionId: 0,
+    positionName: null,
+    position: null,
+    isManagement: false,
+    entryDate: null
+  };
+
   constructor(
     public dialogRef: MatDialogRef<AddPositionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { employee: Employee }
-) {
+  ) {
+
+  }
+  ngOnInit(): void {
+    console.log("in add : ", this.data.employee)
     this.employee = this.data.employee;
+
+  }
+  addPosition(employeePosition: PositionEmployee) {
+    console.log("in addd : ", employeePosition)
+    this.employee.positionEmployees.push(employeePosition);
+    this.dialogRef.close(this.employee.positionEmployees);
+
+  }
+  onCancel(): void {
+    this.dialogRef.close(this.employee.positionEmployees);
+  }
+
 }
-    ngOnInit(): void {
-    
-     
-    }
-    addPosition(employeePosition:PositionEmployee) {
-      this.employee.positions.push(employeePosition);
-      console.log("in add : " , employeePosition)
-       this.dialogRef.close(this.employee.positions);
-   
-     }
-     onCancel(): void {
-       this.dialogRef.close(this.employee.positions); 
-     }
-   
-   }
-   
+

@@ -2,6 +2,6 @@
 {
     public class PositionPostModel
     {
-        public int PositionName { get; set; }
+        public string PositionName { get; set; }
     }
 }

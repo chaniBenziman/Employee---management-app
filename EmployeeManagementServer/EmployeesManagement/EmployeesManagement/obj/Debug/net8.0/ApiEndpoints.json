@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[EmployeesManagement.Core.Models.Employee, EmployeesManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EmployeesManagement.Core.DTO.EmployeeDTO, EmployeesManagement.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -51,7 +51,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "EmployeesManagement.Core.Models.Employee",
+        "Type": "EmployeesManagement.Core.DTO.EmployeeDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

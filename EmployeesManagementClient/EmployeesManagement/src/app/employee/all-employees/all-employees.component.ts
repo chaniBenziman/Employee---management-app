@@ -7,20 +7,35 @@ import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../service/employee.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { EditEmployeeComponent } from '../edit-employee/edit-employee.component';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-allemployees',
+  standalone: true,
+  imports: [  CommonModule, MatTableModule,HttpClientModule,MatIconModule, MatFormFieldModule,
+    MatRadioModule,MatDatepickerModule,MatNativeDateModule,  FormsModule, ReactiveFormsModule,
+    MatInputModule, MatSelectModule],
   templateUrl: './all-Employees.component.html',
-  styleUrls: ['./all-Employees.component.css']
+  styleUrls: ['./all-Employees.component.css'],
+  providers: [EmployeeService,HttpClientModule]
 })
 export class AllEmployeesComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'lastName', 'identity', 'entryDate', 'actions'];
   dataSource: MatTableDataSource<Employee>;
   searchControl: FormControl = new FormControl(''); // FormControl for search field
-
+  isEdit:boolean=false;
   constructor(
     private employeeService: EmployeeService,
     private dialog: MatDialog,
@@ -44,7 +59,7 @@ export class AllEmployeesComponent implements OnInit {
   getAllEmployees() {
     this.employeeService.getEmployee().subscribe((employees: Employee[]) => {
       // Filter active employees
-      this.dataSource.data = employees.filter(employee => employee.statusActive);
+      this.dataSource.data = employees;
     });
   }
 
@@ -52,16 +67,19 @@ export class AllEmployeesComponent implements OnInit {
     this.router.navigate(["/addEmployee"]);
   }
 
-  editEmployee(employee: Employee) {
-    const dialogRef = this.dialog.open(EditEmployeeComponent, {
-      width: '400px', // Adjust the width as needed
-      data: employee
-    });
-  
-    dialogRef.afterClosed().subscribe(result => {
-      // Perform actions after the dialog is closed, if needed
-      console.log('The dialog was closed');
-    });
+  // editEmployee(employee: Employee) {
+  //   const dialogRef = this.dialog.open(EditEmployeeComponent, {
+  //     width: '400px', // Adjust the width as needed
+  //     data: employee
+  //   });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   // Perform actions after the dialog is closed, if needed
+    //   console.log('The dialog was closed');
+    // });
+  // }
+  editEmployee(employee:Employee){
+    this.router.navigate(["/editEmployee", employee.employeeId]);
   }
 
   deleteEmployee(employee: Employee) {

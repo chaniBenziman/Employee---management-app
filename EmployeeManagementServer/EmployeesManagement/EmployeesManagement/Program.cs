@@ -1,3 +1,4 @@
+using EmployeesManagement.Core.Mapping;
 using EmployeesManagement.Core.Repositories;
 using EmployeesManagement.Core.Services;
 using EmployeesManagement.Data;
@@ -30,7 +31,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IPositionService, PositionService>();
 builder.Services.AddScoped<IPositionEmployeeService, PositionEmployeeService>();
 
-builder.Services.AddAutoMapper(typeof(PMMappingProfile));
+builder.Services.AddAutoMapper(typeof(PMMappingProfile), typeof(MappingProfile));
 builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();

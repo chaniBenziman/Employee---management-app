@@ -21,4 +21,7 @@ export class EmployeeService {
    public deleteEmployee(id: number){
      return this.http.delete(`https://localhost:7163/api/Employees/${id}`);
    }
+    public getEmployeeById(id: number): Observable<Employee> {
+      return this.http.get<Employee>(`https://localhost:7163/api/Employees/${id}`);
+    }
 }

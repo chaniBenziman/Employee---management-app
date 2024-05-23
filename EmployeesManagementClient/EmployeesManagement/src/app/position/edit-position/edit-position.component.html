@@ -1,22 +1,18 @@
-<!-- edit-position.component.html -->
-<form [formGroup]="positionForm" (ngSubmit)="onSubmit()" class="position-form">
-    <div class="form-group">
-      <label for="positionName">Position Name:</label>
-      <input type="text" formControlName="positionName" />
-    </div>
-    <div class="form-group">
-      <label for="entryDate">Entry Date:</label>
-      <input type="date" formControlName="entryDate" />
-    </div>
-    <div class="form-group">
-      <label for="isManagement">Management Position:</label>
-      <input type="checkbox" formControlName="isManagement" />
-    </div>
-    <section>
-      <div class="button-group">
-        <button mat-raised-button class="save-button" type="submit">Save</button>
-        <button mat-raised-button class="cancel-button" (click)="onCancel()">Cancel</button>
-      </div>
-    </section>
-  </form>
-  
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="jobs-container">
+<mat-card class="job-card">
+    <mat-card-header>
+      <mat-card-title>{{ employeePosition.positionName }} </mat-card-title>
+      <mat-card-subtitle *ngIf="employeePosition.isManagement">A managerial position</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>from: {{ employeePosition.entryDate| date }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-icon-button color="primary" aria-label="Edit" (click)="editEmployeePosition()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          
+      </mat-card-actions>
+  </mat-card>
+</div>

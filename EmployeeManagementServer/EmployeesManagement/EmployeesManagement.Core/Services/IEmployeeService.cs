@@ -1,4 +1,6 @@
-﻿using EmployeesManagement.Core.Models;
+﻿using EmployeesManagement.Core.DTO;
+using EmployeesManagement.Core.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,8 @@ namespace EmployeesManagement.Core.Services
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<Employee>> GetEmployeesAsync();
-        Task<Employee> GetEmployeeByIdAsync(int id);
+        Task<IEnumerable<EmployeeDTO>> GetEmployeesAsync();
+        Task<EmployeeDTO> GetEmployeeByIdAsync(int id);
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task<Employee> UpdateEmployeeAsync(int id, Employee employee);
         Task<bool> DeleteEmployeeAsync(int id);
