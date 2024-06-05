@@ -4,6 +4,7 @@ export class Employee {
   firstName: string;
   lastName: string;
   identity: string;
+  // password: number;
   birthDate: Date;
   gender: number;
   entryDate: Date;

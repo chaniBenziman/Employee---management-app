@@ -60,6 +60,7 @@ export class PositionFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
 console.log("employeePosition",this.employeePosition) 
     this._positionService.getPositions().subscribe({
       next: (res: Position[]) => {

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,6 +63,24 @@ namespace EmployeesManagement.Data.Repositories
 
 
             return employee;
+        }
+        public async Task<bool> GetByEmployeeNameAndPassword(string employeeFirstName, string employeeLastName, string employeePassword)
+        {
+            if (employeePassword == "12345" && employeeFirstName == "admin" && employeeLastName == "business")
+            {
+                return true;
+            }
+
+            var employee = await _context.Employees
+           .Include(e => e.PositionEmployees)
+           .FirstOrDefaultAsync(e => e.Identity == employeePassword && e.FirstName == employeeFirstName && e.LastName == employeeLastName);
+
+            if (employee != null)
+            {
+                return employee.PositionEmployees.Any(ep => ep.IsManagement);
+            }
+
+            return false;
         }
     }
 }

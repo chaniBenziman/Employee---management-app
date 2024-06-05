@@ -14,5 +14,6 @@ namespace EmployeesManagement.Core.Repositories
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task<Employee> UpdateEmployeeAsync(int id, Employee employee);
         Task<bool> DeleteEmployeeAsync(int id);
+        public Task<bool> GetByEmployeeNameAndPassword(string employeeFirstName, string employeeLastName, string employeePassword);
     }
 }

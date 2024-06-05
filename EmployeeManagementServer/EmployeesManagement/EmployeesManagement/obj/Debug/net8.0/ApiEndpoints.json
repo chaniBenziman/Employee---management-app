@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "EmployeesManagement.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginModel",
+        "Type": "EmployeesManagement.LoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EmployeesManagementServer.API.Controllers.EmployeesController",
     "Method": "Get",
     "RelativePath": "api/Employees",

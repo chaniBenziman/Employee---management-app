@@ -285,3 +285,4 @@ C:\תכנות ו\dotnet\פרקטיקום\EmployeeManagementServer\EmployeesManag
 C:\תכנות ו\dotnet\פרקטיקום\EmployeeManagementServer\EmployeesManagement\EmployeesManagement\obj\Debug\net8.0\EmployeesManagement.pdb
 C:\תכנות ו\dotnet\פרקטיקום\EmployeeManagementServer\EmployeesManagement\EmployeesManagement\obj\Debug\net8.0\EmployeesManagement.genruntimeconfig.cache
 C:\תכנות ו\dotnet\פרקטיקום\EmployeeManagementServer\EmployeesManagement\EmployeesManagement\obj\Debug\net8.0\ref\EmployeesManagement.dll
+C:\תכנות ו\dotnet\פרקטיקום\EmployeeManagementServer\EmployeesManagement\EmployeesManagement\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

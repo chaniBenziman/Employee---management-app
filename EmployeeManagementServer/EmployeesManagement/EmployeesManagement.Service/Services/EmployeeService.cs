@@ -52,5 +52,9 @@ namespace EmployeesManagement.Service.Services
         {
             return await _employeeRepository.UpdateEmployeeAsync(id, employee);
         }
+        public Task<bool> GetByEmployeeNameAndPassword(string employeeFirstName, string employeeLastName, string employeePassword)
+        {
+            return _employeeRepository.GetByEmployeeNameAndPassword(employeeFirstName, employeeLastName, employeePassword);
+        }
     }
 }

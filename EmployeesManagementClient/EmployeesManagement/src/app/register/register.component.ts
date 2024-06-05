@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit{
     firstName: "",
     lastName: "",
     identity: "",
+    // password: null,
     birthDate: null,
     positionEmployees: [],
     gender: null,
@@ -51,6 +52,27 @@ export class RegisterComponent implements OnInit{
     });
   }
 
-  public getNewUsers() {
+  public register() {
+    if (this.SigninForm.valid) {
+      const { name, password, address, email } = this.SigninForm.value;
+      this.employee.firstName = name;
+      // this.employee.password = password;
+      // this.employee.address = address;
+      // this.employee.email = email;
+
+      this._UserService.addEmployee(this.employee).subscribe({
+        next: (response) => {
+          console.log("Registration successful");
+          alert("Registration successful");
+          this.router.navigate(["/login"]);
+        },
+        error: (err) => {
+          console.error("Error registering: ", err);
+          alert("There was an error during registration");
+        }
+      });
+    } else {
+      alert("Please fill in all required fields");
+    }
   }
 }

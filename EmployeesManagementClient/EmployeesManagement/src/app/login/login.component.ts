@@ -22,22 +22,37 @@ export class LoginComponent implements OnInit {
   showRotatingIcon: boolean | undefined;
   hide: boolean | undefined;
   userExists: boolean | undefined;
-
+  errorMessage: string = '';
 constructor(private _employeerService:EmployeeService,private router:Router){}
 
 ngOnInit(): void {
   this.LoginForm = new FormGroup({
-    'name': new FormControl("",[Validators.required, Validators.minLength(3)]),
-    'password': new FormControl( "",Validators.required),
+    'firstName': new FormControl("admin",[Validators.required, Validators.minLength(3)]),
+    'lastName': new FormControl("business",[Validators.required, Validators.minLength(3)]),
+    'password': new FormControl( "1234",Validators.required),
   });
-}
-public getUsers() {
-  this._employeerService.getEmployee().subscribe((data: Employee[]) => {
-    this.Employee = data;
-  });
+  } 
+ 
+
+  enter() : void {
+    const password = this.LoginForm.get('password')!.value;
+    const firstName = this.LoginForm.get('firstName')!.value;
+    const lastName = this.LoginForm.get('lastName')!.value;
+    this._employeerService.GetByEmployeeNameAndPassword(firstName,lastName,password).subscribe(
+      response => {
+        const token = response.token;
+        sessionStorage.setItem('token', token);
+      },
+      error => {
+        this.errorMessage = 'Failed to login. Please try again.';
+      }
+    );
+    sessionStorage.setItem('name', lastName);
+    this.router.navigate(["/employees"]);
+  }
 }
 
-togglePasswordVisibility() {
-  this.hide = !this.hide;
-}
-}
+// togglePasswordVisibility() {
+ 
+// }
+
