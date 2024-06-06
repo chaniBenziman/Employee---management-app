@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { EditPositionComponent } from '../../position/edit-position/edit-position.component';
+import { PositionEmployee } from '../../models/positionEmployee.model';
 @Component({
   selector: 'app-add-employee',
   standalone: true,
@@ -40,6 +41,13 @@ export class EditEmployeeComponent implements OnInit {
     positionEmployees: [],
     gender: null,
     entryDate: null,
+  };
+  public PositionEmployee: PositionEmployee = {
+    positionId: null,
+    positionName: "",
+    isManagement: false,
+    entryDate: null,
+    position: new Position
   };
   public employeeForm: FormGroup;
   positions: Position[] = [];
@@ -119,7 +127,7 @@ export class EditEmployeeComponent implements OnInit {
     this.employee.gender = this.employeeForm.get('gender').value;
     const dialogRef = this.dialog.open(AddPositionComponent, {
       width: '500px',
-      data: { employee: this.employee as Employee }
+      data: { employee: this.employee as Employee, employeePosition: this.PositionEmployee as PositionEmployee}
     });
 
     dialogRef.afterClosed().subscribe(result => {
