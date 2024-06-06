@@ -35,13 +35,14 @@ export class AddPositionComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AddPositionComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { employee: Employee }
+    @Inject(MAT_DIALOG_DATA) public data: { employee: Employee, employeePosition: PositionEmployee}
   ) {
 
   }
   ngOnInit(): void {
     console.log("in add : ", this.data.employee)
     this.employee = this.data.employee;
+    this.employeePosition = this.data.employeePosition;
 
   }
   addPosition(employeePosition: PositionEmployee) {

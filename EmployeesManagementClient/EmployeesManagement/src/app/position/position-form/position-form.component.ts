@@ -73,10 +73,10 @@ console.log("employeePosition",this.employeePosition)
 
 
     this.positionForm = this.formBuilder.group({
-      Position: new FormControl('', Validators.required),
-      positionName: new FormControl('', Validators.required),
-      entryDate: new FormControl('', Validators.required),
-      isManagement: new FormControl(false)
+      Position: new FormControl(this.employeePosition.positionId, Validators.required),
+      positionName: new FormControl(this.employeePosition.positionName, Validators.required),
+      entryDate: new FormControl(this.employeePosition.entryDate, Validators.required),
+      isManagement: new FormControl(this.employeePosition.isManagement, Validators.required)
     });
   }
 

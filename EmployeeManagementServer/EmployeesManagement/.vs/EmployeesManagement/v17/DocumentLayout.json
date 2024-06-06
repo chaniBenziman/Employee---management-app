@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\EmployeeManagementServer\\EmployeesManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6CC7747F-F60D-4E9A-851F-4AD6088AA29C}|EmployeesManagement\\EmployeesManagement.csproj|C:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\EmployeeManagementServer\\EmployeesManagement\\employeesmanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6CC7747F-F60D-4E9A-851F-4AD6088AA29C}|EmployeesManagement\\EmployeesManagement.csproj|c:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\employeemanagementserver\\employeesmanagement\\employeesmanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6CC7747F-F60D-4E9A-851F-4AD6088AA29C}|EmployeesManagement\\EmployeesManagement.csproj|solutionrelative:employeesmanagement\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{6CC7747F-F60D-4E9A-851F-4AD6088AA29C}|EmployeesManagement\\EmployeesManagement.csproj|solutionrelative:employeesmanagement\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA8005C8-03F1-4777-98E6-83FDCE22A01E}|EmployeesManagement.Service\\EmployeesManagement.Service.csproj|c:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\employeemanagementserver\\employeesmanagement\\employeesmanagement.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DA8005C8-03F1-4777-98E6-83FDCE22A01E}|EmployeesManagement.Service\\EmployeesManagement.Service.csproj|C:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\EmployeeManagementServer\\EmployeesManagement\\employeesmanagement.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA8005C8-03F1-4777-98E6-83FDCE22A01E}|EmployeesManagement.Service\\EmployeesManagement.Service.csproj|solutionrelative:employeesmanagement.service\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -184,8 +184,7 @@
               "RelativeToolTip": "EmployeesManagement.Data\\Repositories\\EmployeeRepository.cs",
               "ViewState": "AQIAADsAAAAAAAAAAAAswEIAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-07T19:40:57.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-07T19:40:57.695Z"
             },
             {
               "$type": "Document",
@@ -197,8 +196,7 @@
               "RelativeToolTip": "EmployeesManagement.Service\\Services\\EmployeeService.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAAADYAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T18:40:11.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T18:40:11.317Z"
             },
             {
               "$type": "Document",
@@ -210,8 +208,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Repositories\\IEmployeeRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:33:24.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T17:33:24.464Z"
             },
             {
               "$type": "Document",
@@ -223,8 +220,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Services\\IEmployeeService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:37:16.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T17:37:16.923Z"
             },
             {
               "$type": "Document",
@@ -234,7 +230,7 @@
               "RelativeDocumentMoniker": "EmployeesManagement\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\\u05EA\u05DB\u05E0\u05D5\u05EA \u05D5\\dotnet\\\u05E4\u05E8\u05E7\u05D8\u05D9\u05E7\u05D5\u05DD\\EmployeeManagementServer\\EmployeesManagement\\EmployeesManagement\\Controllers\\AuthController.cs",
               "RelativeToolTip": "EmployeesManagement\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAQwCMAAAAAAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAzwCMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-24T00:15:05.076Z",
               "EditorCaption": ""
@@ -249,8 +245,7 @@
               "RelativeToolTip": "EmployeesManagement\\Controllers\\EmployeesController.cs",
               "ViewState": "AQIAACYAAAAAAAAAAAAgwDMAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T19:15:52.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T19:15:52.307Z"
             },
             {
               "$type": "Document",
@@ -262,8 +257,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Models\\Position.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:29:30.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T17:29:30.59Z"
             },
             {
               "$type": "Document",
@@ -275,8 +269,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\Models\\Employee.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAxwBkAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T17:27:36.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T17:27:36.357Z"
             },
             {
               "$type": "Document",
@@ -288,8 +281,7 @@
               "RelativeToolTip": "EmployeesManagement.Service\\EmployeesManagement.Service.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-01T18:39:34.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-01T18:39:34.527Z"
             },
             {
               "$type": "Document",
@@ -301,8 +293,7 @@
               "RelativeToolTip": "EmployeesManagement.Core\\DTO\\EmployeeDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T14:35:41.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T14:35:41.29Z"
             },
             {
               "$type": "Document",
@@ -314,8 +305,7 @@
               "RelativeToolTip": "EmployeesManagement\\LoginModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T00:21:18.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-24T00:21:18.332Z"
             },
             {
               "$type": "Document",
